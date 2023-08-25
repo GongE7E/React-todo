@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import TodoForm from './TodoForm';
-
+import TodoList from './TodoList';
 const mockTodo = [
   {
     id: 0,
@@ -28,10 +28,10 @@ const mockTodo = [
 function App() {
   const [todos, setTodos] = useState(mockTodo);
   const onCreate = (todo) => setTodos([...todos, todo]);
-
   return (
     <div>
       <TodoForm onCreate={onCreate} />
+      <TodoList todos={todos} />
     </div>
   );
 }
