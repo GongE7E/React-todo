@@ -1,6 +1,6 @@
 import React, { useId } from 'react';
 
-export default function TodoItem({ id, isDone, text, onUpdate }) {
+export default function TodoItem({ id, isDone, text, onUpdate, onDelete }) {
   const checkboxId = useId();
   return (
     <li>
@@ -11,7 +11,7 @@ export default function TodoItem({ id, isDone, text, onUpdate }) {
         onChange={() => onUpdate(id)}
       />
       <label htmlFor={checkboxId}>{text}</label>
-      <button>❌</button>
+      <button onClick={() => onDelete(id)}>❌</button>
     </li>
   );
 }

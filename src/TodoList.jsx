@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 
-export default function TodoList({ todos, onUpdate }) {
+export default function TodoList({ todos, onUpdate, onDelete }) {
   const [search, setSearch] = useState('');
   const getSearchResult = () => {
     return search === ''
@@ -18,7 +18,12 @@ export default function TodoList({ todos, onUpdate }) {
       />
       <ul>
         {getSearchResult().map((item) => (
-          <TodoItem key={item.id} {...item} onUpdate={onUpdate} />
+          <TodoItem
+            key={item.id}
+            {...item}
+            onUpdate={onUpdate}
+            onDelete={onDelete}
+          />
         ))}
       </ul>
     </>

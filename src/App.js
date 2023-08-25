@@ -34,10 +34,13 @@ function App() {
         todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
       )
     );
+  const onDelete = (targetId) => {
+    setTodos(todos.filter((todo) => todo.id !== targetId));
+  };
   return (
     <div>
       <TodoForm onCreate={onCreate} />
-      <TodoList todos={todos} onUpdate={onUpdate} />
+      <TodoList todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
   );
 }
