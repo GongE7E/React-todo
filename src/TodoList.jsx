@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 
 export default function TodoList({ todos }) {
+  const [search, setSearch] = useState('');
+  const getSearchResult = () => {
+    return search === ''
+      ? todos
+      : todos.filter((todo) => todo.text.includes(search.toLowerCase()));
+  };
   return (
-    <ul>
-      {todos.map((item) => (
-        <TodoItem key={item.id} {...item} />
-      ))}
-    </ul>
+    <>
+      <input
+        type='text'
+        value={search}
+        placeholder='🔎 Search'
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <ul>
+        {getSearchResult().map((item) => (
+          <TodoItem key={item.id} {...item} />
+        ))}
+      </ul>
+    </>
   );
 }
