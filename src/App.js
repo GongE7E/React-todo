@@ -1,32 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
-const mockTodo = [
-  {
-    id: 0,
-    text: '밥먹기',
-    isDone: true,
-  },
-  {
-    id: 1,
-    text: '노래듣기',
-    isDone: true,
-  },
-  {
-    id: 2,
-    text: '영화보기',
-    isDone: false,
-  },
-  {
-    id: 3,
-    text: '전시회가기',
-    isDone: true,
-  },
-];
 
 function App() {
-  const [todos, setTodos] = useState(mockTodo);
+  const [todos, setTodos] = useState(readTodoLocalStorage);
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
   const onCreate = (todo) => setTodos([...todos, todo]);
   const onUpdate = (targetId) =>
     setTodos(
@@ -43,6 +24,10 @@ function App() {
       <TodoList todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
   );
+}
+function readTodoLocalStorage() {
+  const todos = localStorage.getItem('todos');
+  return todos ? JSON.parse(todos) : [];
 }
 
 export default App;
