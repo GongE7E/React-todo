@@ -28,10 +28,16 @@ const mockTodo = [
 function App() {
   const [todos, setTodos] = useState(mockTodo);
   const onCreate = (todo) => setTodos([...todos, todo]);
+  const onUpdate = (targetId) =>
+    setTodos(
+      todos.map((todo) =>
+        todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
   return (
     <div>
       <TodoForm onCreate={onCreate} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onUpdate={onUpdate} />
     </div>
   );
 }
