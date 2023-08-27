@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './TodoList.module.css';
 import TodoItem from './TodoItem';
 
 export default function TodoList({ todos, onUpdate, onDelete }) {
@@ -9,14 +10,15 @@ export default function TodoList({ todos, onUpdate, onDelete }) {
       : todos.filter((todo) => todo.text.includes(search.toLowerCase()));
   };
   return (
-    <>
+    <section className={styles.container}>
       <input
+        className={styles.search}
         type='text'
         value={search}
         placeholder='🔎 Search'
         onChange={(e) => setSearch(e.target.value)}
       />
-      <ul>
+      <ul className={styles.item}>
         {getSearchResult().map((item) => (
           <TodoItem
             key={item.id}
@@ -26,6 +28,6 @@ export default function TodoList({ todos, onUpdate, onDelete }) {
           />
         ))}
       </ul>
-    </>
+    </section>
   );
 }
