@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import styles from './App.module.css';
 import Header from './Header';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
@@ -20,7 +20,7 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== targetId));
   };
   return (
-    <div>
+    <div className={styles.App}>
       <Header />
       <TodoForm onCreate={onCreate} />
       <TodoList todos={todos} onUpdate={onUpdate} onDelete={onDelete} />

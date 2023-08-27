@@ -1,0 +1,145 @@
+.form{
+  width: 100%;
+  display: grid;
+  grid-template-columns:1fr 100px;
+   padding:10px ;
+   justify-content: center;
+   
+}
+.inputBx{
+    position: relative;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding:15px 20px;
+    transition:all 0.5s ease-out;
+    height: 50px;
+}
+.inputBx::placeholder{
+  font-weight: 600;
+  font-size:20px;
+  opacity: 0.5;
+  text-align: center;
+  
+}
+.inputBx:focus-within::placeholder{
+  color:var(--color-text-white) ;
+  opacity: 0.4;
+}
+.inputBx:focus-within{
+    background-image:var(--color-bg-image);
+    color:var(--color-text-white);
+    font-weight: 600;
+    font-size:20px;
+}
+
+.addBtn{
+    border-top-right-radius:20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+  align-items: center;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  box-sizing: border-box;
+  color:var(--color-text-white);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  max-height: 50px;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  touch-action: manipulation;
+
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+.addBtn:before,
+.addBtn:after {
+    border-top-right-radius:20px;
+  border-bottom-right-radius: 20px;
+}
+.addBtn:before {
+    background-image: var(--color-bg-image);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -2;
+  }
+  
+  .addBtn:after {
+    background-color: initial;
+    background-color:var(--color-bg-dark);
+    bottom: 4px;
+    content: "";
+    display: block;
+    left: 4px;
+    overflow: hidden;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    transition: all 100ms ease-out;
+    z-index: -1;
+  }
+  
+  .addBtn:hover:not(:disabled):before {
+   background-image: var(--color-bg-image);
+
+  }
+  
+  .addBtn:hover:not(:disabled):after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+  .addBtn:active:not(:disabled) {
+    color: #ccc;
+  }
+  
+  .addBtn:active:not(:disabled):before {
+background-image:var(--color-bg-image);
+
+  }
+  .addBtn:active:not(:disabled):after {
+    background-image: var(--color-bg-image);
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    top: 4px;
+  }
+  
+  .addBtn:disabled {
+    cursor: default;
+    opacity: .24;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

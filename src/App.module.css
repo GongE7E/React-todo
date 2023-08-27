@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  width: 450px;
+  height: 550px;
+  border-radius: 20px;
+  background-color:var(--color-bg-dark);
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+ 
+ 
 }
 
 .App-logo {
