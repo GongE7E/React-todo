@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import Header from './Header';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
+import { DarkModeProvider } from './context/DarkModeContext';
 
 function App() {
   const [todos, setTodos] = useState(readTodoLocalStorage);
@@ -21,9 +22,11 @@ function App() {
   };
   return (
     <div className={styles.App}>
-      <Header />
-      <TodoForm onCreate={onCreate} />
-      <TodoList todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
+      <DarkModeProvider>
+        <Header />
+        <TodoForm onCreate={onCreate} />
+        <TodoList todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
+      </DarkModeProvider>
     </div>
   );
 }
