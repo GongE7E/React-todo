@@ -16,9 +16,16 @@ body {
   align-items:center;
   background-color: var(--color-bg-dark);
 }
+html.dark{
+  --color-bg-dark:#1a1c35;
+  --color-text:#ba8ed9;
+  --color-accent:#715df0;
+}
+
+
 :root{
   --color-bg-dark:#2f363e;
-  --color-text-white:#fff;
+  --color-text:#fff;
   --color-btn:#3B3B3B;
   --color-border-black:#1A1A1A;
   --color-accent:#00DDEB;

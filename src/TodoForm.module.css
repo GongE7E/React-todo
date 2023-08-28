@@ -22,12 +22,12 @@
   
 }
 .inputBx:focus-within::placeholder{
-  color:var(--color-text-white) ;
+  color:var(--color-text) ;
   opacity: 0.4;
 }
 .inputBx:focus-within{
     background-image:var(--color-bg-image);
-    color:var(--color-text-white);
+    color:var(--color-text);
     font-weight: 600;
     font-size:20px;
 }
@@ -42,7 +42,7 @@
   background-color: initial;
   background-image: none;
   box-sizing: border-box;
-  color:var(--color-text-white);
+  color:var(--color-text);
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
