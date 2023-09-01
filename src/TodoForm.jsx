@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import styles from './TodoForm.module.css';
-import { v4 as uuidv4 } from 'uuid';
 
 export default function TodoForm({ onCreate }) {
   const textRef = useRef();
@@ -8,12 +7,12 @@ export default function TodoForm({ onCreate }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim().length === 0) {
+      textRef.current.focus();
       setText('');
       return;
     } else {
-      onCreate({ id: uuidv4(), text, isDone: false });
+      onCreate(text);
       setText('');
-      textRef.current.focus();
     }
   };
 
