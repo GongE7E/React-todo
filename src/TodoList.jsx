@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './TodoList.module.css';
 import TodoItem from './TodoItem';
 
-export default function TodoList({ todos, onUpdate, onDelete }) {
+export default function TodoList({ todos, onDelete, onUpdate }) {
   const [search, setSearch] = useState('');
   const getSearchResult = () => {
     return search === ''
@@ -19,14 +19,15 @@ export default function TodoList({ todos, onUpdate, onDelete }) {
         onChange={(e) => setSearch(e.target.value)}
       />
       <ul className={styles.item}>
-        {getSearchResult().map((item) => (
-          <TodoItem
-            key={item.id}
-            {...item}
-            onUpdate={onUpdate}
-            onDelete={onDelete}
-          />
-        ))}
+        {getSearchResult() &&
+          getSearchResult().map((item) => (
+            <TodoItem
+              key={item.id}
+              {...item}
+              onDelete={onDelete}
+              onUpdate={onUpdate}
+            />
+          ))}
       </ul>
     </section>
   );
