@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useCallback, useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './App.module.css';
 import Header from './Header';
@@ -20,18 +20,18 @@ function App() {
       },
     });
   };
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch({
       type: 'Update',
       targetId,
     });
-  };
-  const onDelete = (targetId) => {
+  }, []);
+  const onDelete = useCallback((targetId) => {
     dispatch({
       type: 'Delete',
       targetId,
     });
-  };
+  }, []);
   return (
     <div className={styles.App}>
       <DarkModeProvider>
