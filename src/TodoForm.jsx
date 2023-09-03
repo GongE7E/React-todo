@@ -1,7 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import styles from './TodoForm.module.css';
+import { TodosDispatchContext } from './App';
 
-export default function TodoForm({ onCreate }) {
+export default function TodoForm() {
+  const { onCreate } = useContext(TodosDispatchContext);
   const textRef = useRef();
   const [text, setText] = useState('');
   const handleSubmit = (e) => {

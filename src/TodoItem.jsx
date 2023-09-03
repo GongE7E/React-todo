@@ -1,16 +1,12 @@
-import React, { useId, memo } from 'react';
+import React, { useId, memo, useContext } from 'react';
 import styles from './TodoItem.module.css';
 import { FaTrashAlt } from 'react-icons/fa';
+import { TodosDispatchContext } from './App';
 
-export default memo(function TodoItem({
-  id,
-  isDone,
-  text,
-  onUpdate,
-  onDelete,
-}) {
+export default memo(function TodoItem({ id, isDone, text }) {
+  const { onDelete, onUpdate } = useContext(TodosDispatchContext);
   const checkboxId = useId();
-
+  console.log(`${id} 업데이트 `);
   return (
     <li className={styles.item}>
       <input

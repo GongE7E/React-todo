@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './TodoList.module.css';
 import TodoItem from './TodoItem';
-
-export default function TodoList({ todos, onDelete, onUpdate }) {
+import { TodosStateContext } from './App';
+export default function TodoList() {
+  const { todos } = useContext(TodosStateContext);
   const [search, setSearch] = useState('');
   const getSearchResult = () => {
     return search === ''
       ? todos
       : todos.filter((todo) => todo.text.includes(search.toLowerCase()));
   };
+
   return (
     <section className={styles.container}>
       <input
@@ -20,14 +22,7 @@ export default function TodoList({ todos, onDelete, onUpdate }) {
       />
       <ul className={styles.item}>
         {getSearchResult() &&
-          getSearchResult().map((item) => (
-            <TodoItem
-              key={item.id}
-              {...item}
-              onDelete={onDelete}
-              onUpdate={onUpdate}
-            />
-          ))}
+          getSearchResult().map((item) => <TodoItem key={item.id} {...item} />)}
       </ul>
     </section>
   );
