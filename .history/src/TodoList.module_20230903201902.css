@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    min-height: 0px;
+    min-height: 50px;
     flex-direction: column;
     height: 100%;
     padding:10px;
@@ -17,8 +17,8 @@
 }
 .item{
     position: relative;
-    height: 230px;
-    overflow-y: auto;
+    height: 320px;
+    overflow-y: hidden;
 }
 
 ::-webkit-scrollbar-track{

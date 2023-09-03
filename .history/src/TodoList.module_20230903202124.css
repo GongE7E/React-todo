@@ -1,5 +1,6 @@
 .container{
     display: flex;
+ 
     min-height: 0px;
     flex-direction: column;
     height: 100%;
@@ -17,7 +18,7 @@
 }
 .item{
     position: relative;
-    height: 230px;
+    height: 320px;
     overflow-y: auto;
 }
 
